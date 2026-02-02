@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.errorText {
+  color: var(--color-critical);
+  font-size: 12px;
+  text-align: left;
+}

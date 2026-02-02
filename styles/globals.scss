@@ -1,0 +1,13 @@
+// Global styles for the component library
+
+// Reset styles
+@import './styles/reset.scss';
+
+// Variables
+@import './styles/variables/colors.scss';
+@import './styles/variables/semanticColors.scss';
+@import './styles/variables/font.scss';
+@import './styles/variables/breakpoints.scss';
+
+// Mixins
+@import './styles/mixins.scss';

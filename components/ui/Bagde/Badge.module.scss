@@ -1,0 +1,169 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/font.scss' as *;
+
+.rootBase {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: $bg-secondary;
+  width: fit-content;
+  border-radius: 4px;
+  border: 4px solid transparent;
+  height: fit-content;
+  gap: 4px;
+
+  border-radius: 4px;
+  &.round {
+    border-radius: 100px;
+  }
+}
+
+.root {
+  @extend .rootBase;
+  padding: 0 8px;
+
+  @include m.respond-to('sm') {
+    padding: 0px 8px;
+  }
+
+  @include m.respond-to('lg') {
+    padding: 0 12px;
+  }
+
+  @include m.respond-to('x-lg') {
+    padding: 14px 16px;
+  }
+}
+
+//
+//
+//Типы
+.default {
+  background-color: $bg-secondary;
+
+  .text {
+    color: $text-primary;
+  }
+}
+
+.active {
+  background-color: $bg-accentSubduedActive;
+
+  .text {
+    color: $text-accentActive;
+  }
+
+  svg {
+    color: $icon-accent;
+  }
+}
+
+.progress {
+  background-color: $bg-progressSubdued;
+
+  .text {
+    color: $text-progress;
+  }
+
+  svg {
+    color: $icon-progress;
+  }
+}
+
+.caution {
+  background-color: $bg-cautionSubdued;
+
+  .text {
+    color: $text-caution;
+  }
+
+  svg {
+    color: $icon-caution;
+  }
+}
+
+.error {
+  background-color: $bg-criticalSubdued;
+
+  .text {
+    color: $text-critical;
+  }
+
+  svg {
+    color: $icon-critical;
+  }
+}
+
+.success {
+  background-color: $bg-successSubdued;
+
+  .text {
+    color: $text-success;
+  }
+
+  svg {
+    color: $icon-success;
+  }
+}
+
+//
+//
+//Размеры
+
+.large {
+  padding: 14px 16px;
+  height: 40px;
+
+  .text {
+    font-size: $font-size-7;
+  }
+
+  border-radius: 8px;
+  &.round {
+    border-radius: 100px;
+  }
+}
+
+.medium {
+  padding: 0 12px;
+  height: 32px;
+
+  .text {
+    font-size: $font-size-7;
+  }
+
+  border-radius: 8px;
+  &.round {
+    border-radius: 100px;
+  }
+}
+
+.small {
+  padding: 0px 8px;
+  height: 24px;
+
+  .text {
+    font-size: $font-size-8;
+  }
+
+  border-radius: 4px;
+  &.round {
+    border-radius: 100px;
+  }
+}
+
+.xsmall {
+  padding: 0 8px;
+  height: 16px;
+
+  .text {
+    font-size: $font-size-9;
+  }
+
+  border-radius: 4px;
+  &.round {
+    border-radius: 100px;
+  }
+}

@@ -1,0 +1,198 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# OsnovaDetstva UI Kit
+
+Production-grade React component library with **43 generic, reusable UI components**.
+
+## Features
+
+- 43 generic components with no business logic
+- TypeScript-first with strict mode
+- 112+ tree-shakable icon exports
+- WCAG compliant with ARIA attributes
+- Mobile-first responsive design
+- Framework-agnostic architecture
+- Production-ready components
+
+## Component Categories
+
+### Core UI (4)
+- Button, Input, Text, Icon
+
+### Form Controls (5)
+- Dropdown, Checkbox, Radio, Toggle, SegmentedControl
+
+### Form Components (6)
+- BaseFormInput, FormFieldError, FormInput, FormInputGroup, FormSection, FieldInput
+
+### Specialized Inputs (6)
+- PhoneInput, EmailInput, PasswordInput, PriceInput, SmsCodeInput, DateRangeInput
+
+### File Upload (2)
+- FileUpload, ImageCropperModal
+
+### Layout & Container (4)
+- Layout, Container, Modal, ModalContainer
+
+### Navigation (4)
+- NavigationLink, Clickable, ScrollToTop, OverflowMenu
+
+### Feedback & Status (4)
+- Loader, Toast, ToastContainer, Banner
+
+### Display Components (6)
+- Avatar, Logo, Badge, Tag, StarRating, RatingScoreDot
+
+### Utilities (1)
+- ClientOnly
+
+## Design System
+
+### Size System
+All components use consistent sizing:
+- `xsmall` - Extra small (compact UI)
+- `small` - Small
+- `medium` - Default
+- `large` - Large
+
+### Color System
+Semantic color tokens:
+- `primary` - Main brand color (#f96032)
+- `secondary` - Supporting elements
+- `tertiary` - Subtle elements
+- `accent` - Highlights
+- `critical` - Errors (#e54545)
+- `success` - Success states (#3d995c)
+- `warning` - Warnings (#ff9900)
+
+### Typography
+Text variants from h1-h8 and p1-p6:
+- Semantic HTML mapping
+- Responsive sizing
+- Font weight control
+
+### Breakpoints
+- **Mobile:** < 768px
+- **Tablet:** 768px - 1365px
+- **Desktop:** 1366px - 1919px
+- **Wide Desktop:** ≥ 1920px
+
+## Quick Start
+
+```tsx
+import { Button, Input, Icon } from '@osnova-detstva/ui-kit';
+
+function MyComponent() {
+  return (
+    <div>
+      <Button variant="primary" size="medium" leftIcon="add">
+        Add Item
+      </Button>
+      <Input
+        name="email"
+        placeholder="Enter email"
+        size="medium"
+        leftIcon="mail"
+      />
+    </div>
+  );
+}
+```
+
+## Icon System
+
+112+ SVG icons with tree-shaking support:
+
+```tsx
+// Method 1: Using Icon component
+<Icon icon="search" size="medium" color="primary" />
+
+// Method 2: Direct import (tree-shakable)
+import { search, add, close } from '@osnova-detstva/ui-kit/icons';
+<search className="icon" />
+```
+
+**Icon Categories:**
+- Navigation: arrows, chevrons, menu, home
+- Actions: add, edit, delete, check, close
+- Communication: mail, call, chat, notifications
+- Media: play, pause, stop, volume controls
+- Social: telegram, vk, dzen
+- Status: verified, star, warning, info
+
+## Utilities
+
+### Type-safe className helpers
+```tsx
+import { getInputSizeClass } from '@osnova-detstva/ui-kit';
+```
+
+### Size mappings
+```tsx
+import { SIZE_MAPPINGS } from '@osnova-detstva/ui-kit';
+```
+
+### Custom hooks
+```tsx
+import { useBreakpoint, useClickOutside } from '@osnova-detstva/ui-kit';
+
+function ResponsiveComponent() {
+  const breakpoint = useBreakpoint();
+  return <div>Current: {breakpoint}</div>;
+}
+```
+
+## Architecture
+
+**Built with:**
+- **React 19** - Latest React features
+- **TypeScript 5.7** - Advanced type safety
+- **SCSS Modules** - Scoped styling
+- **Feature-Sliced Design** - Scalable architecture
+
+**Quality Standards:**
+- TypeScript strict mode
+- Zero `any` types
+- 100% type coverage
+- WCAG compliance
+- Performance optimized
+
+## Browse Stories
+
+Explore components in the sidebar:
+- **Components/** - Core UI components
+- Each component includes:
+  - Interactive examples
+  - Props documentation
+  - Accessibility features
+  - Usage guidelines
+
+## Installation
+
+```bash
+npm install @osnova-detstva/ui-kit
+# or
+yarn add @osnova-detstva/ui-kit
+```
+
+## Type Safety
+
+Full TypeScript support with exported types:
+
+```tsx
+import type {
+  ButtonProps,
+  InputProps,
+  IconType,
+  TextVariant,
+  DropdownSizeType,
+} from '@osnova-detstva/ui-kit';
+```
+
+---
+
+**Status:** Production-ready, actively maintained
+**License:** MIT
+**Built by:** Middle+/Senior Frontend Developer

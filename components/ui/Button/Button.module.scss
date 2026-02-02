@@ -1,0 +1,498 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+
+//
+//Size
+
+.button-base {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.button-large {
+  @extend .button-base;
+  min-width: 56px;
+  height: 56px;
+  gap: 10px;
+  padding: 17px 24px;
+}
+
+.button-medium {
+  @extend .button-base;
+  min-width: 48px;
+  height: 48px;
+  gap: 8px;
+  padding: 16px 18px;
+}
+
+.button-small {
+  @extend .button-base;
+  min-width: 40px;
+  height: 40px;
+  gap: 8px;
+  padding: 16px;
+}
+
+.button-xsmall {
+  @extend .button-base;
+  min-width: 32px;
+  height: 32px;
+  gap: 8px;
+  padding: 16px 14px;
+}
+
+//
+// Color Variants
+
+.button-primary {
+  background-color: $bg-accent;
+  color: $text-white;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $bg-accentHover;
+
+      & > * {
+        color: $text-white !important;
+      }
+    }
+  }
+
+  &:active {
+    background-color: $bg-accentActive;
+
+    & > * {
+      color: $text-white !important;
+    }
+  }
+
+  &.is-active {
+    background-color: $bg-accentActive;
+
+    & > * {
+      color: $text-white !important;
+    }
+  }
+
+  &:focus-visible {
+    outline: 4px solid $bg-accent;
+  }
+
+  &:disabled {
+    background-color: $bg-disabled;
+    cursor: not-allowed;
+    color: $text-disabled;
+
+    & > * {
+      color: $text-disabled !important;
+    }
+  }
+}
+
+.button-secondary {
+  background-color: $bg-secondary;
+  color: $text-primary;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $bg-accentSubduedHover;
+      color: $text-accentActive;
+
+      & > * {
+        color: $text-accentActive !important;
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline: 4px solid $border-focus;
+  }
+
+  &:active {
+    background-color: $bg-accentSubduedActive;
+    color: $text-accentActive;
+
+    & > * {
+      color: $text-accentActive !important;
+    }
+  }
+
+  &.is-active {
+    background-color: $bg-accentSubduedActive;
+    color: $text-accentActive;
+
+    & > * {
+      color: $text-accentActive !important;
+    }
+  }
+
+  &:disabled {
+    background-color: $bg-disabled;
+    cursor: not-allowed;
+    color: $text-disabled;
+
+    & > * {
+      color: $text-disabled !important;
+    }
+  }
+}
+
+.button-ghost {
+  color: $text-primary;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $bg-accentSubduedHover;
+      color: $text-accentHover !important;
+
+      & > * {
+        color: $text-accentHover !important;
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline: 4px solid $border-focus;
+  }
+
+  &:active {
+    background-color: $bg-accentSubduedActive;
+    color: $text-accentActive;
+
+    & > * {
+      color: $text-accentActive !important;
+    }
+  }
+
+  &.is-active {
+    background-color: $bg-accentSubduedActive;
+    color: $text-accentActive;
+
+    & > * {
+      color: $text-accentActive !important;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $text-disabled;
+
+    & > * {
+      color: $text-disabled !important;
+    }
+  }
+}
+
+//
+//Shape(Border) variants
+
+.button-square {
+  border-radius: 8px;
+}
+
+.button-round {
+  border-radius: 64px;
+}
+
+.button-iconOnly {
+  padding: 0;
+  overflow: visible;
+
+  &.button-large {
+    width: 56px;
+    height: 56px;
+  }
+
+  &.button-medium {
+    width: 48px;
+    height: 48px;
+  }
+
+  &.button-small {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.button-xsmall {
+    width: 32px;
+    height: 32px;
+  }
+
+  // Icon-only round buttons get perfect circle border-radius
+  &.button-round {
+    &.button-large {
+      border-radius: 28px;
+    }
+
+    &.button-medium {
+      border-radius: 24px;
+    }
+
+    &.button-small {
+      border-radius: 20px;
+    }
+
+    &.button-xsmall {
+      border-radius: 16px;
+    }
+  }
+}
+
+// Icon positioning for icon-only buttons
+.buttonIconOnly .icon {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1;
+}
+
+// Full-width button
+// Для использования внутри контейнеров, если более 2 кнопок в ряду
+// нужно добавить фикс в родительский контейнер
+// .container {
+//    button {
+//     flex: 1 1 50%;
+//   }
+// }
+//
+
+.fullWidth {
+  width: 100%;
+}
+
+// New semantic buttons(for different pages)
+//
+@mixin button-large {
+  min-width: 56px;
+  height: 56px;
+  gap: 10px;
+  padding: 17px 24px;
+}
+
+@mixin button-medium {
+  min-width: 48px;
+  height: 48px;
+  gap: 8px;
+  padding: 16px 18px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@mixin button-small {
+  min-width: 40px;
+  height: 40px;
+  gap: 6px;
+  padding: 16px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@mixin button-xsmall {
+  min-width: 32px;
+  height: 32px;
+  gap: 4px;
+  padding: 16px 14px;
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.button-landing-large {
+  @extend .button-base;
+  @include button-small;
+
+  @include m.respond-to('sm') {
+    @include button-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-large;
+  }
+}
+
+.button-landingTag-large {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('sm') {
+    @include button-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-large;
+  }
+}
+
+.button-landingHow-large {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('sm') {
+    @include button-large;
+  }
+}
+
+.button-landingHow-large {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('sm') {
+    @include button-large;
+  }
+}
+
+.button-chat-large {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('sm') {
+    @include button-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-large;
+  }
+}
+
+.button-profile-large {
+  @extend .button-base;
+  @include button-small;
+
+  @include m.respond-to('sm') {
+    @include button-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-large;
+  }
+}
+
+.button-profile-medium {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('sm') {
+    @include button-small;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-medium;
+  }
+}
+
+.button-searchModal-medium {
+  @extend .button-base;
+  @include button-small;
+
+  @include m.respond-to('sm') {
+    @include button-medium;
+  }
+}
+
+.button-searchModal-large {
+  @extend .button-base;
+  @include button-small;
+
+  @include m.respond-to('sm') {
+    @include button-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-large;
+  }
+}
+
+.button-text-left {
+  justify-content: flex-start;
+}
+
+.button-text-center {
+  justify-content: center;
+}
+
+.button-text-rigth {
+  justify-content: flex-end;
+}
+
+.default {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('sm') {
+    @include button-small;
+  }
+
+  @include m.respond-to('lg') {
+    @include button-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-large;
+  }
+}
+
+.minSmall {
+  @extend .button-base;
+  @include button-small;
+
+  @include m.respond-to('lg') {
+    @include button-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-large;
+  }
+}
+
+.minxSmallMaxMedium {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('lg') {
+    @include button-small;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-medium;
+  }
+}
+
+.fieldInput {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('lg') {
+    @include button-small;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-medium;
+  }
+}
+
+.minXsmalAndSmSmallMedium {
+  @extend .button-base;
+  @include button-xsmall;
+
+  @include m.respond-to('lg') {
+    @include button-small;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include button-medium;
+  }
+}

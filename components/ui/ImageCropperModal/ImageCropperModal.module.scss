@@ -1,0 +1,56 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  overflow-y: auto;
+
+  @include m.respond-to('sm') {
+    height: auto;
+    width: auto;
+    gap: 24px;
+  }
+
+  button {
+    flex: 1 1 50%;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+
+.cropperWrapper {
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+
+  @include m.respond-to('sm') {
+    height: 380px;
+    border-radius: 12px;
+  }
+}
+
+.cropper {
+  width: 100%;
+  height: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  padding: 5px;
+  // margin: -5px;
+
+  @include m.respond-to('sm') {
+    gap: 8px;
+  }
+}

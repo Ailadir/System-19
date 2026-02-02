@@ -1,0 +1,15 @@
+$font-size-1: 40px; //h1-lg
+$font-size-2: 36px; //h1
+$font-size-3: 32px; //h2
+$font-size-4: 24px; //h3,p1
+$font-size-5: 18px; //h4,p2
+$font-size-6: 16px; //h5,p3
+$font-size-7: 14px; //h6,p4
+$font-size-8: 12px; //h7,p5
+$font-size-9: 10px; //h8,p6
+
+//Для размеров текста в макетах, есть p12 вариантов, отличие в том, что p2 - это тот же p1, но с меньшей жирностью
+//Поэтому делим макетный размер на 2 и получаем нужный размер, добавляя жирность по необходимости
+$font-weight-bold: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;

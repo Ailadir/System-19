@@ -1,0 +1,102 @@
+@use 'src/shared/styles/variables/breakpoints' as bp;
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+
+//
+//Базовые стили,выравнивание контейнера, его ширина и т.д
+.root {
+  max-width: 100%;
+  // max-width: bp.$container-xs-width;
+  // width: fit-content;
+
+  // @include m.respond-to('sm') {
+  //   max-width: bp.$container-sm-width;
+  // }
+
+  // @include m.respond-to('lg') {
+  //   max-width: bp.$container-lg-width;
+  // }
+
+  // @include m.respond-to('x-lg') {
+  //   // max-width: bp.$container-x-lg-width;
+  // }
+}
+
+.autoMargin {
+  margin: 0 auto;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+//
+// Закругления
+//
+.borderRadius-100 {
+  border-radius: 100px;
+}
+
+.borderRadius-48 {
+  border-radius: 16px;
+
+  @include m.respond-to('sm') {
+    border-radius: 48px;
+  }
+}
+
+.borderRadius-32 {
+  border-radius: 24px;
+
+  @include m.respond-to('sm') {
+    border-radius: 32px;
+  }
+}
+
+.borderRadius-24 {
+  border-radius: 16px;
+
+  @include m.respond-to('sm') {
+    border-radius: 24px;
+  }
+}
+
+.borderRadius-16 {
+  border-radius: 16px;
+}
+
+//
+// Цвета бекграунда
+.backgroundColor-primary {
+  background-color: $bg-primary;
+}
+
+.backgroundColor-secondary {
+  background-color: $bg-secondary;
+}
+
+.backgroundColor-accentSubdued {
+  background-color: $bg-accentSubdued;
+}
+
+.backgroundColor-accent {
+  background-color: $bg-accent;
+}
+
+.backgroundColor-transparent {
+  background-color: transparent;
+}
+
+//
+// Паддинги
+.padding-8 {
+  padding: 8px;
+}
+
+.fitWidth {
+  width: fit-content;
+}
+
+.fullWidth {
+  width: 100%;
+}

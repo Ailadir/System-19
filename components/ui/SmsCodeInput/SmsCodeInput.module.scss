@@ -1,0 +1,23 @@
+@use 'src/shared/styles/variables/breakpoints' as bp;
+@use 'src/shared/styles/mixins' as m;
+
+.root {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+
+  @include m.respond-to('sm') {
+    gap: 8px;
+  }
+}
+
+.codeInput {
+  text-align: center;
+  font-weight: 600;
+  width: 69px;
+
+  @include m.respond-to('sm') {
+    width: 113px;
+  }
+}

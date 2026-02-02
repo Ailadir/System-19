@@ -1,0 +1,435 @@
+@use 'src/shared/styles/variables/colors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+
+  &.disabled {
+    .hint {
+      color: $black-36;
+    }
+  }
+
+  &:not(.disabled) {
+    &:hover {
+      .input-base {
+        background-color: $black-8;
+      }
+      .hint {
+        color: $black-100;
+      }
+    }
+
+    &:focus-within {
+      .hint {
+        color: $black-100;
+      }
+    }
+
+    &:active {
+      .hint {
+        color: $black-100;
+      }
+    }
+  }
+}
+
+.hint {
+  color: $black-36;
+}
+
+p.hintText {
+  color: $black-36;
+  font-size: 12px !important;
+
+  @include m.respond-to('lg') {
+    font-size: 14px !important;
+  }
+
+  @include m.respond-to('x-lg') {
+    font-size: 16px !important;
+  }
+}
+
+.error {
+  color: $text-critical;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.errorText {
+  color: $text-critical;
+  text-align: left;
+  align-self: flex-start;
+  font-size: 12px;
+
+  p {
+    font-size: 12px !important;
+  }
+
+  @include m.respond-to('lg') {
+    font-size: 14px;
+
+    p {
+      font-size: 14px !important;
+    }
+  }
+
+  @include m.respond-to('x-lg') {
+    font-size: 16px;
+
+    p {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.input-base {
+  background-color: $black-4;
+  width: 100%;
+  border: 1px solid transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:disabled {
+    background-color: $black-8;
+  }
+
+  &.validation-error {
+    border: 1px solid $border-critical;
+  }
+
+  &.validation-success {
+    border: 1px solid #3d995c;
+  }
+
+  &:focus-within,
+  &.hasValue {
+    border: 1px solid $border-primary;
+    background-color: $bg-primary;
+  }
+
+  //Оверрайд для автофила
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px $black-4 inset !important;
+    -webkit-text-fill-color: $text-primary !important;
+    box-shadow: 0 0 0 1000px $black-4 inset !important;
+    background-color: $black-4 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  &:autofill {
+    background-color: $black-4 !important;
+    color: $text-primary !important;
+    box-shadow: 0 0 0 1000px $black-4 inset !important;
+  }
+
+  &:focus-within:-webkit-autofill,
+  &.hasValue:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px $bg-primary inset !important;
+    box-shadow: 0 0 0 1000px $bg-primary inset !important;
+    background-color: $bg-primary !important;
+  }
+}
+
+.label-base {
+  position: absolute;
+  color: $text-secondary;
+  left: 5px;
+}
+
+@mixin input-xsmall {
+  height: 32px;
+  border-radius: 4px;
+  gap: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 14px;
+  font-size: 10px;
+}
+@mixin input-small {
+  height: 40px;
+  border-radius: 4px;
+  gap: 6px;
+  padding-top: 6px;
+  padding-right: 4px;
+  padding-bottom: 6px;
+  padding-left: 16px;
+  font-size: 12px;
+}
+@mixin input-medium {
+  height: 48px;
+  border-radius: 6px;
+  gap: 8px;
+  padding-top: 10px;
+  padding-right: 4px;
+  padding-bottom: 10px;
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+@mixin input-large {
+  height: 56px;
+  border-radius: 8px;
+  gap: 8px;
+  padding-top: 14px;
+  padding-right: 4px;
+  padding-bottom: 14px;
+  padding-left: 24px;
+  font-size: 18px;
+}
+
+@mixin label-xsmall {
+  top: -19px;
+  font-size: 12px;
+}
+@mixin label-small {
+  top: -19px;
+  font-size: 12px;
+}
+@mixin label-medium {
+  top: -22px;
+  font-size: 14px;
+}
+@mixin label-large {
+  top: -24px;
+  left: 4px;
+  font-size: 16px;
+}
+
+.input-xsmall {
+  @extend .input-base;
+  @include input-xsmall;
+}
+
+.input-small {
+  @extend .input-base;
+  @include input-small;
+}
+
+.input-medium {
+  @extend .input-base;
+  @include input-medium;
+}
+
+.input-large {
+  @extend .input-base;
+  @include input-large;
+}
+
+.label-xsmall {
+  @extend .label-base;
+  @include label-xsmall;
+}
+
+.label-small {
+  @extend .label-base;
+  @include label-small;
+}
+
+.label-medium {
+  @extend .label-base;
+  @include label-medium;
+}
+
+.label-large {
+  @extend .label-base;
+  @include label-large;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.iconContainerBase {
+  position: absolute;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-secondary;
+}
+
+.iconContainer-xsmall,
+.iconContainer-small {
+  @extend .iconContainerBase;
+  width: 32px;
+  height: 32px;
+}
+
+.iconContainer-medium {
+  @extend .iconContainerBase;
+  width: 40px;
+  height: 40px;
+}
+
+.iconContainer-large {
+  @extend .iconContainerBase;
+  width: 48px;
+  height: 48px;
+}
+
+.iconContainerRound {
+  border-radius: 50%;
+}
+
+.leftIcon {
+  position: absolute;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.rightIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  &.clickable {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+}
+
+.inputLeftMargin {
+  padding-left: 42px;
+}
+
+.inputRightMargin {
+  &.input-xsmall,
+  &.input-small {
+    padding-right: 48px;
+  }
+
+  &.input-medium {
+    padding-right: 56px;
+  }
+
+  &.input-large {
+    padding-right: 64px;
+  }
+}
+
+.inputRound {
+  border-radius: 64px !important;
+}
+
+.additionalMargin {
+  margin-top: 8px;
+
+  @include m.respond-to('lg') {
+    margin-top: 22px;
+  }
+
+  @include m.respond-to('x-lg') {
+    margin-top: 24px;
+  }
+}
+
+.profile {
+  @extend .input-base;
+  padding-right: 16px !important;
+
+  @extend .inputRound;
+  @include label-small;
+  @include input-small;
+  border-radius: 64px;
+  @include m.respond-to('sm') {
+    @include label-medium;
+    @include input-medium;
+    border-radius: 64px;
+  }
+
+  @include m.respond-to('lg') {
+    @include label-large;
+    @include input-large;
+    border-radius: 64px;
+  }
+}
+
+.default {
+  @extend .input-base;
+
+  @include label-xsmall;
+  @include input-xsmall;
+
+  .iconContainerBase {
+    width: 32px;
+    height: 32px;
+  }
+
+  @include m.respond-to('sm') {
+    @include label-small;
+    @include input-small;
+
+    .iconContainerBase {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @include m.respond-to('lg') {
+    @include label-medium;
+    @include input-medium;
+
+    .iconContainerBase {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @include m.respond-to('x-lg') {
+    @include label-large;
+    @include input-large;
+
+    .iconContainerBase {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+.minSmall {
+  @extend .input-base;
+
+  @include label-small;
+  @include input-small;
+
+  .iconContainerBase {
+    width: 32px;
+    height: 32px;
+  }
+
+  @include m.respond-to('sm') {
+    @include label-medium;
+    @include input-medium;
+
+    .iconContainerBase {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @include m.respond-to('x-lg') {
+    @include label-large;
+    @include input-large;
+
+    .iconContainerBase {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

@@ -1,0 +1,247 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/font.scss' as *;
+
+.base {
+  box-sizing: border-box;
+  background-color: $bg-secondary;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 4px;
+
+  &.round {
+    border-radius: 64px;
+  }
+
+  @include m.respond-to('lg') {
+    border-radius: 6px;
+
+    &.round {
+      border-radius: 64px;
+    }
+  }
+
+  @include m.respond-to('x-lg') {
+    border-radius: 8px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: $text-accentHover;
+      background-color: $bg-accentSubduedHover;
+
+      p {
+        color: $text-accentHover;
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline-offset: -4px;
+    outline: 4px solid $border-focus;
+  }
+
+  &:active {
+    color: $text-accentActive;
+    background-color: $bg-accentSubduedActive;
+
+    p {
+      color: $text-accentActive;
+    }
+  }
+
+  &:disabled {
+    background-color: $bg-disabled;
+    color: $text-disabled;
+
+    p {
+      color: $text-disabled;
+    }
+  }
+
+  &.selected {
+    color: $text-accentActive;
+    background-color: $bg-accentSubduedActive;
+
+    p {
+      color: $text-accentActive;
+    }
+  }
+}
+
+.root {
+  @extend .base;
+
+  padding: 0 8px;
+
+  @include m.respond-to('sm') {
+    padding: 4px 12px;
+  }
+
+  @include m.respond-to('lg') {
+    padding: 4px 16px;
+  }
+
+  @include m.respond-to('x-lg') {
+    padding: 8px 24px;
+  }
+}
+
+.xsmall {
+  @extend .base;
+
+  padding: 3px 8px;
+  border-radius: 4px;
+
+  &.round {
+    border-radius: 64px;
+  }
+
+  p {
+    font-size: $font-size-8;
+  }
+}
+
+.small {
+  @extend .base;
+
+  padding: 8px 12px;
+  border-radius: 4px;
+
+  &.round {
+    border-radius: 64px;
+  }
+
+  p {
+    font-size: $font-size-7;
+  }
+}
+
+.medium {
+  @extend .base;
+
+  padding: 14px 16px;
+  border-radius: 6px;
+
+  &.round {
+    border-radius: 64px;
+  }
+
+  p {
+    font-size: $font-size-7;
+  }
+}
+
+.large {
+  @extend .base;
+  padding: 14px 24px;
+  border-radius: 8px;
+
+  &.round {
+    border-radius: 64px;
+  }
+
+  p {
+    font-size: $font-size-6;
+  }
+}
+
+.default {
+  @extend .base;
+
+  padding: 3px 8px;
+  border-radius: 4px;
+
+  &.round {
+    border-radius: 64px;
+  }
+
+  p {
+    font-size: $font-size-8;
+  }
+
+  @include m.respond-to('sm') {
+    padding: 8px 12px;
+    border-radius: 4px;
+
+    p {
+      font-size: $font-size-7;
+    }
+  }
+
+  @include m.respond-to('lg') {
+    padding: 14px 16px;
+    border-radius: 6px;
+
+    p {
+      font-size: $font-size-7;
+    }
+  }
+
+  @include m.respond-to('x-lg') {
+    padding: 14px 24px;
+    border-radius: 8px;
+
+    p {
+      font-size: $font-size-6;
+    }
+  }
+}
+
+.minSmall {
+  @extend .base;
+
+  padding: 8px 12px;
+  border-radius: 4px;
+
+  p {
+    font-size: $font-size-7;
+  }
+
+  @include m.respond-to('sm') {
+    padding: 14px 16px;
+    border-radius: 6px;
+
+    p {
+      font-size: $font-size-7;
+    }
+  }
+
+  @include m.respond-to('x-lg') {
+    padding: 14px 24px;
+    border-radius: 8px;
+
+    p {
+      font-size: $font-size-6;
+    }
+  }
+}
+
+.iconXsmall,
+.iconSmall {
+  width: 12px;
+  height: 12px;
+}
+
+.iconMedium {
+  width: 14px;
+  height: 14px;
+}
+
+.iconLarge {
+  width: 16px;
+  height: 16px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

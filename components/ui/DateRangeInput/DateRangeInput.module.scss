@@ -1,0 +1,25 @@
+@use 'src/shared/styles/mixins' as m;
+
+.yearInputs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+
+  @include m.respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

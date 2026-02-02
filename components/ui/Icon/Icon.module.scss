@@ -1,0 +1,112 @@
+@use 'src/shared/styles/variables/colors.scss' as *;
+
+.icon-primary {
+  color: $black-100;
+}
+.icon-primaryInverse {
+  color: $white-100;
+}
+.icon-secondary {
+  color: $black-60;
+}
+.icon-disabled {
+  color: $black-36;
+}
+.icon-accent {
+  color: $brand-100;
+}
+.icon-accentHover {
+  color: $brand-700-100;
+}
+.icon-accentActive {
+  color: $brand-800-100;
+}
+.icon-accentSubdued {
+  color: $brand-6;
+}
+.icon-accentSubduedHover {
+  color: $brand-10;
+}
+.icon-accentSubduedActive {
+  color: $brand-14;
+}
+.icon-progress {
+  color: $blue-100;
+}
+.icon-progressHover {
+  color: $blue-700-100;
+}
+.icon-progressActive {
+  color: $blue-800-100;
+}
+.icon-progressSubdued {
+  color: $blue-6;
+}
+.icon-progressSubduedHover {
+  color: $blue-10;
+}
+.icon-progressSubduedActive {
+  color: $blue-14;
+}
+.icon-critical {
+  color: $red-100;
+}
+.icon-criticalHover {
+  color: $red-700-100;
+}
+.icon-criticalActive {
+  color: $red-800-100;
+}
+.icon-caution {
+  color: $orange-100;
+}
+.icon-cautionHover {
+  color: $orange-700-100;
+}
+.icon-cautionActive {
+  color: $orange-800-100;
+}
+.icon-success {
+  color: $green-100;
+}
+.icon-successHover {
+  color: $green-700-100;
+}
+.icon-successActive {
+  color: $green-800-100;
+}
+
+.root {
+  overflow: visible !important;
+  display: block;
+}
+
+.icon-xsmall {
+  width: 12px;
+  height: 12px;
+}
+
+.icon-small {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-medium {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-large {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-xlLarge {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-landing {
+  width: 120px;
+  height: 120px;
+}

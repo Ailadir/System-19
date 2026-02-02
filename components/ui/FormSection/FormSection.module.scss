@@ -1,0 +1,40 @@
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  flex: 1 1 auto;
+  max-width: stretch;
+
+  @include m.respond-to('sm') {
+    gap: 16px;
+  }
+
+  @include m.respond-to('x-lg') {
+    gap: 24px;
+  }
+}
+
+.secondary {
+  background-color: $bg-secondary;
+  border-radius: 16px;
+  padding: 16px;
+
+  @include m.respond-to('sm') {
+    padding: 24px;
+    border-radius: 24px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @include m.respond-to('sm') {
+    gap: 8px;
+  }
+}

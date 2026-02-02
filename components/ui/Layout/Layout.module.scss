@@ -1,0 +1,36 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+
+.layout {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: calc(100vh - 80px);
+
+  @include m.respond-to('sm') {
+    min-height: calc(100vh - 98px);
+  }
+
+  @include m.respond-to('lg') {
+    min-height: calc(100vh - 114px);
+  }
+
+  @include m.respond-to('x-lg') {
+    min-height: calc(100vh - 122px);
+  }
+}
+
+.bg-primary {
+  background-color: $bg-primary;
+}
+
+.bg-secondary {
+  background-color: $bg-secondary;
+}
+
+.bg-accent {
+  background-color: $bg-accent;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}

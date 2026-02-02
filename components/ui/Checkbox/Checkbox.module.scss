@@ -1,0 +1,100 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/variables/breakpoints.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+
+.container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  gap: 8px;
+
+  @include m.respond-to('lg') {
+    gap: 12px;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &.error {
+    .checkbox {
+      border-color: $border-critical;
+    }
+  }
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  & + .checkbox {
+    background-color: $bg-primary;
+    border: 1px solid $border-accent;
+  }
+
+  &:checked + .checkbox {
+    background-color: $bg-accent;
+    border: 1px solid $border-accent;
+    color: $icon-white;
+  }
+
+  &:hover + .checkbox {
+    border: 1px solid $border-accentHover;
+    background-color: $bg-accentHover;
+  }
+
+  &:checked:hover + .checkbox {
+    background-color: $bg-accent;
+    border: 1px solid $border-accent;
+  }
+
+  &:focus + .checkbox {
+    box-shadow: 0 0 0 4px $border-focus;
+  }
+
+  &:active + .checkbox {
+    border: 1px solid $border-accentActive;
+    background-color: $bg-accentActive;
+  }
+
+  &:checked:active + .checkbox {
+    background-color: $bg-accent;
+    border: 1px solid $border-accent;
+  }
+
+  &:disabled + .checkbox {
+    border: 1px solid $border-disabled;
+    background-color: $bg-disabled;
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+
+  @include m.respond-to('sm') {
+    width: 16px;
+    height: 16px;
+  }
+
+  @include m.respond-to('lg') {
+    width: 18px;
+    height: 18px;
+  }
+
+  @include m.respond-to('x-lg') {
+    width: 20px;
+    height: 20px;
+  }
+}

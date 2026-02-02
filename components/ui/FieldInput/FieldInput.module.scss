@@ -1,0 +1,424 @@
+@use 'src/shared/styles/variables/colors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+
+  &.disabled {
+    .hint {
+      color: $black-36;
+    }
+  }
+
+  &:not(.disabled) {
+    &:hover {
+      .textarea-base {
+        background-color: $black-8;
+      }
+      .hint {
+        color: $black-100;
+      }
+    }
+
+    &:focus-within {
+      .hint {
+        color: $black-100;
+      }
+    }
+
+    &:active {
+      .hint {
+        color: $black-100;
+      }
+    }
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.iconButtonLeft {
+  position: absolute !important;
+  z-index: 1;
+  bottom: 10.5px;
+  left: 5px;
+
+  @include m.respond-to('sm') {
+    left: 6px;
+    bottom: 12px;
+  }
+
+  @include m.respond-to('lg') {
+    bottom: 10px;
+    left: 4px;
+  }
+}
+
+.iconButtonRight {
+  position: absolute !important;
+  z-index: 1;
+  bottom: 10.5px;
+  right: 5px;
+
+  @include m.respond-to('sm') {
+    right: 6px;
+    bottom: 12px;
+  }
+
+  @include m.respond-to('lg') {
+    bottom: 10px;
+    right: 4px;
+  }
+}
+
+.textarea-with-left-icon {
+  padding-left: 60px !important;
+}
+
+.textarea-with-right-icon {
+  padding-right: 60px !important;
+}
+
+.hint {
+  color: $black-36;
+}
+
+p.hintText {
+  color: $black-36;
+  font-size: 12px !important;
+
+  @include m.respond-to('lg') {
+    font-size: 14px !important;
+  }
+
+  @include m.respond-to('x-lg') {
+    font-size: 16px !important;
+  }
+}
+
+.error {
+  color: $text-critical;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.errorText {
+  color: $text-critical;
+  text-align: left;
+  align-self: flex-start;
+  font-size: 12px;
+
+  p {
+    font-size: 12px !important;
+  }
+
+  @include m.respond-to('lg') {
+    font-size: 14px;
+
+    p {
+      font-size: 14px !important;
+    }
+  }
+
+  @include m.respond-to('x-lg') {
+    font-size: 16px;
+
+    p {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.textarea-base {
+  background-color: $black-4;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  // height: auto;
+  // min-height: 60px;
+  max-height: 300px;
+  resize: vertical;
+  overflow-y: auto;
+  background-clip: padding-box;
+  font-family: inherit;
+
+  clip-path: inset(0 round 8px);
+  @include m.respond-to('sm') {
+    padding: 14px 10px 14px 18px;
+  }
+  @include m.respond-to('x-lg') {
+    padding: 16px 10px 16px 24px;
+  }
+
+  &:disabled {
+    background-color: $black-8;
+  }
+
+  &.validation-error {
+    border: 1px solid $border-critical;
+  }
+
+  &.validation-success {
+    border: 1px solid #3d995c;
+  }
+
+  &:focus-within,
+  &.hasValue {
+    border: 1px solid $border-primary;
+    background-color: $bg-primary;
+  }
+}
+
+.label-base {
+  position: absolute;
+  color: $text-secondary;
+  left: 5px;
+}
+
+@mixin textarea-xsmall {
+  border-radius: 8px;
+  gap: 4px;
+  padding: 12px 4px 12px 14px;
+  font-size: 12px;
+}
+
+@mixin textarea-small {
+  border-radius: 8px;
+  gap: 6px;
+  padding: 12px 4px 12px 16px;
+  font-size: 12px;
+
+  @include m.respond-to('sm') {
+    padding: 14px 4px 14px 16px;
+  }
+}
+
+@mixin textarea-medium {
+  border-radius: 8px;
+  gap: 8px;
+  padding: 12px 4px 12px 18px;
+  font-size: 14px;
+
+  @include m.respond-to('sm') {
+    padding: 14px 4px 14px 18px;
+  }
+}
+
+@mixin textarea-large {
+  border-radius: 8px;
+  gap: 8px;
+  padding: 12px 4px 12px 24px;
+  font-size: 18px;
+
+  @include m.respond-to('sm') {
+    padding: 14px 4px 14px 24px;
+  }
+  @include m.respond-to('x-lg') {
+    padding: 16px 4px 16px 24px;
+  }
+}
+
+@mixin label-xsmall {
+  top: -19px;
+  font-size: 12px;
+}
+@mixin label-small {
+  top: -19px;
+  font-size: 12px;
+}
+@mixin label-medium {
+  top: -22px;
+  font-size: 14px;
+}
+@mixin label-large {
+  top: -24px;
+  left: 4px;
+  font-size: 16px;
+}
+
+.textarea-xsmall {
+  @extend .textarea-base;
+  @include textarea-xsmall;
+}
+
+.textarea-small {
+  @extend .textarea-base;
+  @include textarea-small;
+}
+
+.textarea-medium {
+  @extend .textarea-base;
+  @include textarea-medium;
+}
+
+.textarea-large {
+  @extend .textarea-base;
+  @include textarea-large;
+}
+
+.label-xsmall {
+  @extend .label-base;
+  @include label-xsmall;
+}
+
+.label-small {
+  @extend .label-base;
+  @include label-small;
+}
+
+.label-medium {
+  @extend .label-base;
+  @include label-medium;
+}
+
+.label-large {
+  @extend .label-base;
+  @include label-large;
+}
+
+.additionalMargin {
+  margin-top: 8px;
+
+  @include m.respond-to('lg') {
+    margin-top: 22px;
+  }
+
+  @include m.respond-to('x-lg') {
+    margin-top: 24px;
+  }
+}
+
+.profile {
+  @extend .textarea-base;
+  padding-right: 16px !important;
+  border-radius: 64px;
+
+  @include label-small;
+  @include textarea-small;
+  @include m.respond-to('sm') {
+    @include label-medium;
+    @include textarea-medium;
+  }
+
+  @include m.respond-to('lg') {
+    @include label-large;
+    @include textarea-large;
+  }
+}
+
+.default {
+  @extend .textarea-base;
+
+  @include label-xsmall;
+  @include textarea-xsmall;
+
+  @include m.respond-to('sm') {
+    @include label-small;
+    @include textarea-small;
+  }
+
+  @include m.respond-to('lg') {
+    @include label-medium;
+    @include textarea-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include label-large;
+    @include textarea-large;
+  }
+}
+
+.minSmall {
+  @extend .textarea-base;
+
+  @include label-small;
+  @include textarea-small;
+
+  @include m.respond-to('sm') {
+    @include label-medium;
+    @include textarea-medium;
+  }
+
+  @include m.respond-to('x-lg') {
+    @include label-large;
+    @include textarea-large;
+  }
+}
+
+.inputRound {
+  border-radius: 24px;
+  clip-path: inset(0 round 24px);
+}
+
+.textarea-no-resize {
+  resize: none !important;
+}
+
+.textarea-auto-grow {
+  overflow-y: hidden !important;
+  resize: none !important;
+
+  &.max-height-reached {
+    padding-right: 10px;
+    overflow-y: auto !important;
+  }
+
+  &.textarea-xsmall {
+    // min-height: 32px !important;
+  }
+
+  &.textarea-small {
+    // min-height: 40px !important;
+  }
+
+  &.textarea-medium {
+    // min-height: 48px !important;
+  }
+
+  &.textarea-large {
+    // min-height: 56px !important;
+  }
+
+  &.default {
+    min-height: 40px !important;
+
+    @include m.respond-to('sm') {
+      min-height: 42px !important;
+    }
+    @include m.respond-to('lg') {
+      min-height: 48px !important;
+    }
+    @include m.respond-to('x-lg') {
+      min-height: 55px !important;
+    }
+  }
+
+  &.minSmall {
+    // min-height: 40px !important;
+    //
+    @include m.respond-to('sm') {
+      // min-height: 48px !important;
+    }
+    @include m.respond-to('x-lg') {
+      // min-height: 56px !important;
+    }
+  }
+
+  &.profile {
+    // min-height: 40px !important;
+
+    @include m.respond-to('sm') {
+      // min-height: 48px !important;
+    }
+    @include m.respond-to('lg') {
+      // min-height: 56px !important;
+    }
+  }
+}

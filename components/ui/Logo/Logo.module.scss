@@ -1,0 +1,19 @@
+@use 'src/shared/styles/mixins' as m;
+
+.logoButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.logo {
+  min-width: 119px;
+  min-height: 40px;
+
+  @include m.respond-to('x-lg') {
+    min-width: 143px;
+    min-height: 48px;
+  }
+}

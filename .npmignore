@@ -1,0 +1,42 @@
+# Source files (only publish dist/)
+components/
+icons/
+utils/
+config/
+hooks/
+types/
+styles/
+
+# Config files
+.storybook/
+tsconfig.json
+tsconfig.build.json
+tsconfig.json.reference
+package.json.reference
+
+# Development files
+*.stories.tsx
+*.test.tsx
+*.spec.tsx
+
+# Documentation (keep README.md and QUICKSTART.md)
+STRUCTURE.md
+STORYBOOK_SETUP.md
+CONSISTENCY_AUDIT.md
+ICON_USAGE.md
+
+# Git
+.git/
+.gitignore
+
+# Build artifacts
+node_modules/
+storybook-static/
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+.DS_Store
+*.log

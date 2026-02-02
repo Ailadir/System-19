@@ -1,0 +1,20 @@
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/colors.scss' as c;
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+
+.menu {
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px -1px #7777830d;
+  border: 1px solid $border-accentActive;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  z-index: 999;
+}
+
+.divider {
+  height: 1px;
+  background-color: $border-secondary;
+  margin: 4px 0;
+}

@@ -1,0 +1,95 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+
+.segmentedControl {
+  display: flex;
+  background-color: $bg-secondary;
+  border-radius: 100px;
+  width: 100%;
+  position: relative;
+
+  button {
+    flex: 1 1 50%;
+  }
+}
+
+.segmentedControl-small,
+.segmentedControl-medium,
+.segmentedControl-large {
+  padding: 4px;
+}
+
+.segmentedControl-xsmall {
+  padding: 0px;
+}
+
+// Стили для label
+.additionalMargin {
+  margin-top: 20px;
+
+  @include m.respond-to('lg') {
+    margin-top: 22px;
+  }
+
+  @include m.respond-to('x-lg') {
+    margin-top: 24px;
+  }
+}
+
+.label-base {
+  font-weight: 400;
+  position: absolute;
+  color: $text-secondary;
+  left: 5px;
+}
+
+.label-xsmall {
+  @extend .label-base;
+
+  top: -19px;
+  font-size: 12px;
+}
+
+.label-small {
+  @extend .label-base;
+
+  top: -19px;
+  font-size: 12px;
+}
+
+.label-medium {
+  @extend .label-base;
+
+  top: -22px;
+  font-size: 14px;
+}
+
+.label-large {
+  @extend .label-base;
+
+  top: -24px;
+  left: 4px;
+  font-size: 16px;
+}
+
+.labelAdaptive {
+  @extend .label-base;
+  top: -19px;
+  font-size: 12px;
+
+  @include m.respond-to('sm') {
+    top: -19px;
+    font-size: 12px;
+  }
+
+  @include m.respond-to('lg') {
+    top: -22px;
+    font-size: 14px;
+  }
+
+  @include m.respond-to('xlg') {
+    top: -24px;
+    left: 4px;
+    font-size: 16px;
+  }
+}

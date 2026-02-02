@@ -1,0 +1,33 @@
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+
+.avatar {
+  object-fit: cover;
+  background-color: $bg-secondary;
+}
+
+.avatarPlaceholder {
+  background-color: $bg-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small {
+  width: 48px;
+  height: 48px;
+
+  @include m.respond-to('lg') {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.large {
+  width: 240px;
+  height: 240px;
+}
+
+.round {
+  border-radius: 50%;
+}

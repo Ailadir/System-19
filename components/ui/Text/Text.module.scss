@@ -1,0 +1,584 @@
+@use 'src/shared/styles/variables/font.scss' as *;
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+
+.text-base {
+  font-family:
+    var(--font-rubik),
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  line-height: 120%;
+  letter-spacing: 0%;
+  display: inline;
+}
+
+.text-h1 {
+  font-size: $font-size-2; // 36px
+}
+.text-h2 {
+  font-size: $font-size-3; // 32px
+}
+.text-h3 {
+  font-size: $font-size-4; // 24px
+}
+.text-h4 {
+  font-size: $font-size-5; // 18px
+}
+.text-h5 {
+  font-size: $font-size-6; // 16px
+}
+.text-h6 {
+  font-size: $font-size-7; // 14px
+}
+.text-h7 {
+  font-size: $font-size-8; // 12px
+}
+.text-h8 {
+  font-size: $font-size-9; // 10px
+}
+
+.text-weight-bold {
+  @extend .text-base;
+  font-weight: $font-weight-bold; //500
+}
+
+.text-weight-regular {
+  @extend .text-base;
+  font-weight: $font-weight-regular; //400
+}
+
+.text-weight-light {
+  @extend .text-base;
+  font-weight: $font-weight-light; //300
+}
+
+.text-p1 {
+  font-size: $font-size-4; //24px
+}
+
+.text-p2 {
+  font-size: $font-size-5; //18px
+}
+
+.text-p3 {
+  font-size: $font-size-6; //16px
+}
+
+.text-p4 {
+  font-size: $font-size-7; //14px
+}
+
+.text-p5 {
+  font-size: $font-size-8; //12px
+}
+
+.text-p6 {
+  font-size: $font-size-9; //10px
+}
+
+// Color classes
+.text-color-primary {
+  color: $text-primary;
+}
+
+.text-color-secondary {
+  color: $text-secondary;
+}
+
+.text-color-disabled {
+  color: $text-disabled;
+}
+
+.text-color-accent {
+  color: $text-accent;
+}
+
+.text-color-accentHover {
+  color: $text-accentHover;
+}
+
+.text-color-accentActive {
+  color: $text-accentActive;
+}
+
+.text-color-progress {
+  color: $text-progress;
+}
+
+.text-color-progressHover {
+  color: $text-progressHover;
+}
+
+.text-color-progressActive {
+  color: $text-progressActive;
+}
+
+.text-color-critical {
+  color: $text-critical;
+}
+
+.text-color-criticalHover {
+  color: $text-criticalHover;
+}
+
+.text-color-criticalActive {
+  color: $text-criticalActive;
+}
+
+.text-color-caution {
+  color: $text-caution;
+}
+
+.text-color-cautionHover {
+  color: $text-cautionHover;
+}
+
+.text-color-cautionActive {
+  color: $text-cautionActive;
+}
+
+.text-color-success {
+  color: $text-success;
+}
+
+.text-color-successHover {
+  color: $text-successHover;
+}
+
+.text-color-successActive {
+  color: $text-successActive;
+}
+
+.text-color-white {
+  color: $text-white;
+}
+
+//
+//Clamp Text
+.textClampBase {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.textClamp-1 {
+  @extend .textClampBase;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+}
+
+.textClamp-2 {
+  @extend .textClampBase;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+}
+
+.textClamp-3 {
+  @extend .textClampBase;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+}
+
+//
+//TODO: Сделать переработку шрифтов и изменить нейминг в дальнейшем по группам(страницы или семантика)
+//
+
+.landing-text-h1 {
+  font-size: $font-size-5;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-3;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-2;
+  }
+}
+
+.landing-text-h2 {
+  font-size: $font-size-5;
+  @include m.respond-to('sm') {
+    font-size: $font-size-4;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-3;
+  }
+}
+
+.landing-text-h3 {
+  font-size: $font-size-6;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-4;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-3;
+  }
+}
+
+.landing-text-h4 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-4;
+  }
+}
+
+.landing-text-p1 {
+  font-size: $font-size-6;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-4;
+  }
+}
+
+.landing-text-p2 {
+  font-size: $font-size-7;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-4;
+  }
+}
+
+.landing-text-p4 {
+  font-size: $font-size-7;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+  @include m.respond-to('lg') {
+    font-size: $font-size-5;
+  }
+}
+
+.snippet-text-h4 {
+  font-size: $font-size-7;
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-4;
+  }
+}
+
+.reviewTitle-text-p2 {
+  font-size: $font-size-5;
+  @include m.respond-to('sm') {
+    font-size: $font-size-4;
+  }
+}
+
+.review-text-p2 {
+  font-size: $font-size-8;
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-4;
+  }
+}
+
+.footer-text-h5 {
+  font-size: $font-size-7;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+}
+
+.footer-text-p6 {
+  font-size: $font-size-9;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-7;
+  }
+  @include m.respond-to('lg') {
+    font-size: $font-size-6;
+  }
+}
+
+.footer-text-p6 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-7;
+  }
+  @include m.respond-to('lg') {
+    font-size: $font-size-6;
+  }
+}
+
+.footer-text-p8 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-7;
+  }
+}
+
+.chat-text-p6 {
+  font-size: $font-size-9;
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+}
+.chat-text-p4 {
+  font-size: $font-size-8;
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+  @include m.respond-to('lg') {
+    font-size: $font-size-5;
+  }
+}
+
+.magazine-text-h3 {
+  font-size: $font-size-7;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+  @include m.respond-to('lg') {
+    font-size: $font-size-4;
+  }
+}
+
+.header-text-h4 {
+  font-size: $font-size-7;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-5;
+  }
+}
+
+.header-text-p6 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-7;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-6;
+  }
+}
+
+.profile-text-p1 {
+  font-size: $font-size-7;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-4;
+  }
+}
+
+.profile-text-p2 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-5;
+  }
+}
+
+.profile-text-p3 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-7;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-6;
+  }
+}
+
+.profile-text-p4 {
+  font-size: $font-size-9;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-8;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-7;
+  }
+}
+
+.profile-text-h2 {
+  font-size: $font-size-5;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-4;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-3;
+  }
+}
+
+.profile-text-h3 {
+  font-size: $font-size-6;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-4;
+  }
+}
+
+.profile-text-h4 {
+  font-size: $font-size-6;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+}
+
+.tag-text-p3 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-7;
+  }
+
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-6;
+  }
+}
+
+.lightSnippet-text-p2 {
+  font-size: $font-size-6;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+}
+
+.search-text-h2 {
+  font-size: $font-size-5;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-4;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-3;
+  }
+}
+
+.serach-text-h4 {
+  font-size: $font-size-7;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+}
+
+.search-text-p1 {
+  font-size: $font-size-5;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-4;
+  }
+}
+
+.search-text-p2 {
+  font-size: $font-size-7;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-5;
+  }
+}
+
+.search-text-p3 {
+  font-size: $font-size-7;
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+}
+
+.serach-text-p4 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-7;
+  }
+}
+
+.snippet-text-h1 {
+  font-size: $font-size-4;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-3;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-2;
+  }
+}
+
+.snippet-text-p1 {
+  font-size: $font-size-5;
+  @include m.respond-to('sm') {
+    font-size: $font-size-4;
+  }
+}
+
+.banner-text-h4 {
+  font-size: $font-size-7;
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-5;
+  }
+}
+
+.banner-text-p3 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-7;
+  }
+
+  @include m.respond-to('x-lg') {
+    font-size: $font-size-6;
+  }
+}
+
+.rules-text-p3 {
+  font-size: $font-size-8;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-6;
+  }
+}
+
+.rules-text-p2 {
+  font-size: $font-size-6;
+
+  @include m.respond-to('sm') {
+    font-size: $font-size-5;
+  }
+}

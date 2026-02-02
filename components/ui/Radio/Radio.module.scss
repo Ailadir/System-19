@@ -1,0 +1,121 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/variables/breakpoints.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+
+.container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  gap: 8px;
+  @include m.respond-to('md') {
+    gap: 12px;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  &.error {
+    .radio {
+      border-color: $border-critical;
+    }
+  }
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  & + .radio {
+    background-color: $bg-primary;
+    border: 2px solid $border-accent;
+    .dot {
+      opacity: 0;
+      transform: scale(0);
+      background-color: $icon-accent;
+    }
+  }
+
+  &:checked + .radio {
+    border: 2px solid $border-accent;
+    .dot {
+      opacity: 1;
+      transform: scale(1);
+      background-color: $icon-accent;
+    }
+  }
+
+  &:hover + .radio {
+    border: 2px solid $border-accentHover;
+    .dot {
+      background-color: $icon-accentHover;
+    }
+  }
+
+  &:focus-visible + .radio {
+    border: 2px solid $border-accent;
+    box-shadow: 0 0 0 4px $border-focus;
+    .dot {
+      background-color: $icon-accent;
+    }
+  }
+
+  &:active + .radio {
+    border: 2px solid $border-accentActive;
+    .dot {
+      background-color: $icon-accentActive;
+    }
+  }
+
+  &:disabled + .radio {
+    border: 2px solid $border-disabled;
+    .dot {
+      background-color: $icon-disabled;
+    }
+  }
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  @include m.respond-to('sm') {
+    width: 16px;
+    height: 16px;
+  }
+  @include m.respond-to('md') {
+    width: 18px;
+    height: 18px;
+  }
+  @include m.respond-to('lg') {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  @include m.respond-to('sm') {
+    width: 8px;
+    height: 8px;
+  }
+  @include m.respond-to('md') {
+    width: 9px;
+    height: 9px;
+  }
+  @include m.respond-to('lg') {
+    width: 10px;
+    height: 10px;
+  }
+}

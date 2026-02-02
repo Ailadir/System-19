@@ -1,0 +1,17 @@
+@use './variables/breakpoints' as bp;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: #{bp.$sm-viewport}) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: #{bp.$lg-viewport}) {
+      @content;
+    }
+  } @else if $breakpoint == 'x-lg' {
+    @media (min-width: #{bp.$x-lg-viewport}) {
+      @content;
+    }
+  }
+}

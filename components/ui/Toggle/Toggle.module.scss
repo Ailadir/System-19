@@ -1,0 +1,112 @@
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+@use 'src/shared/styles/mixins' as m;
+
+.container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  gap: 8px;
+  @include m.respond-to('md') {
+    gap: 12px;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  &.error {
+    .toggle {
+      background-color: $bg-critical;
+      border: 1px solid $border-critical;
+    }
+  }
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  & + .toggle {
+    background-color: $bg-secondary;
+    border: 1px solid $border-primary;
+    .slider {
+      background-color: $bg-primaryInverse;
+    }
+  }
+
+  &:checked + .toggle {
+    background-color: $bg-accent;
+    border: 1px solid $border-accent;
+    .slider {
+      transform: translateX(120%);
+      background-color: $bg-primary;
+    }
+  }
+
+  &:hover + .toggle .slider {
+    background-color: $bg-accentHover;
+  }
+
+  &:focus-visible + .toggle {
+    box-shadow: 0 0 0 4px $border-focus;
+  }
+
+  &:active + .toggle .slider {
+    background-color: $bg-accentActive;
+  }
+
+  &:disabled + .toggle {
+    background-color: $bg-disabled;
+    border: 1px solid $border-primary;
+    .slider {
+      background-color: $bg-disabled;
+    }
+  }
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 14px;
+  border-radius: 100px;
+  padding: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  @include m.respond-to('sm') {
+    width: 32px;
+    height: 16px;
+  }
+  @include m.respond-to('md') {
+    width: 36px;
+    height: 18px;
+  }
+  @include m.respond-to('lg') {
+    width: 40px;
+    height: 20px;
+  }
+}
+
+.slider {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  @include m.respond-to('sm') {
+    width: 12px;
+    height: 12px;
+  }
+  @include m.respond-to('md') {
+    width: 14px;
+    height: 14px;
+  }
+  @include m.respond-to('lg') {
+    width: 16px;
+    height: 16px;
+  }
+}

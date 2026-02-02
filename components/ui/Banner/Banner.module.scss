@@ -1,0 +1,91 @@
+@use 'src/shared/styles/mixins' as m;
+@use 'src/shared/styles/variables/semanticColors.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 8px;
+  padding: 16px;
+  overflow: hidden;
+  gap: 12px;
+
+  @include m.respond-to('sm') {
+    border-radius: 32px;
+  }
+
+  .button {
+    background-color: $bg-primary;
+  }
+
+  &.accent {
+    .iconWrapper {
+      background-color: $bg-accent;
+    }
+  }
+}
+
+.divider {
+  display: block;
+  height: 1px;
+  background-color: $border-inverse;
+}
+
+.progress {
+  background-color: $bg-progress;
+}
+
+.critical {
+  background-color: $bg-critical;
+}
+
+.success {
+  background-color: $bg-success;
+}
+
+.accent {
+  background-color: $bg-accentSubdued;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  height: 40px;
+  width: 40px;
+  background-color: $bg-primary;
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    @include m.respond-to('sm') {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @include m.respond-to('sm') {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.noBanner {
+  display: none;
+
+  @include m.respond-to('sm') {
+    display: block;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
